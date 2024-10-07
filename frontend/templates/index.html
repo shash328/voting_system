@@ -1,0 +1,85 @@
+<!-- frontend_app/templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blockchain Voting System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            max-width: 400px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"], button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button {
+            background: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+        pre {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            max-height: 400px;
+        }
+        .notification {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 3px;
+            display: none;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <h1>Blockchain Voting System</h1>
+
+    <div id="notification" class="notification"></div>
+
+    <form id="voteForm">
+        <label for="voter_id">Voter ID:</label><br>
+        <input type="text" id="voter_id" name="voter_id" required><br>
+        <label for="candidate">Candidate:</label><br>
+        <input type="text" id="candidate" name="candidate" required><br>
+        <button type="submit">Submit Vote</button>
+    </form>
+
+    <h2>Blockchain</h2>
+    <button id="refreshChain">Refresh Blockchain</button>
+    <pre id="blockchain">Loading blockchain...</pre>
+</body>
+</html>
